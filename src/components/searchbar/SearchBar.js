@@ -9,10 +9,11 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit="" className="SearchBar">
-        <input placeholder="Write your songe here"></input>
-        <button type="submit">Search</button>
-      </form>
+      <div className="SearchBar">
+        <input placeholder="Enter A Song, Album, or Artist" />
+        <a>SEARCH</a>
+      </div>
+
     );
   }
 }

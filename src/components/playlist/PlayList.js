@@ -7,12 +7,12 @@ class PlayList extends React.Component {
 
   render() {
     return (
-      <div className="PlayList">
-        <div className="PlayListTitle">
-          <h2>New PlayList</h2>
-        </div>
+      <div className="Playlist">
+        <input value={"New Playlist"}/>
         <TrackList />
+        <a className="Playlist-save">SAVE TO SPOTIFY</a>
       </div>
+
     );
   }
 }

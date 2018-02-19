@@ -2,6 +2,11 @@ import React from 'react';
 import './Track.css'
 
 class Track extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isRemoval: false}
+  }
+
 
   render() {
 
@@ -9,13 +14,17 @@ class Track extends React.Component {
     let trackAlbum = "The Temper Trap";
     let trackArtist = "Bootleg";
 
+    renderAction() {
+      if (isRemoval)
+    }
+
     return (
-      <div className="track">
-        <div className="trackText">
-          <h2>{trackName}</h2>
-          <p>{trackAlbum} - {trackArtist}</p>
+      <div className="Track">
+        <div className="Track-information">
+          <h3>{trackName}</h3>
+          <p>{trackArtist} | {trackAlbum}</p>
         </div>
-        <i onClick={this.props.onClick} className="fas fa-plus"></i>
+        <a className="Track-action">{this.renderAction}</a>
       </div>
     );
   }

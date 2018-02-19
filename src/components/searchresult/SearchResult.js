@@ -7,12 +7,11 @@ class SearchResult extends React.Component {
 
   render() {
     return (
-      <div className="SearchResult">
-        <div className="TrackListTitle">
-          <h2>Results</h2>
-        </div>
+      <div className="SearchResults">
+        <h2>Results</h2>
         <TrackList />
       </div>
+
     );
   }
 }

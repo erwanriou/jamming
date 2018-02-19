@@ -7,8 +7,8 @@ class TrackList extends React.Component {
 
   render() {
     return (
-      <div className="TrackListcontent">
-        <Track />
+      <div className="TrackList">
+          <Track />
       </div>
     );
   }
