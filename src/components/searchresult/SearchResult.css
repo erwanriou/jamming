@@ -1,0 +1,15 @@
+.TrackLists {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.TrackListTitle {
+  text-align: center;
+}
+
+.TrackListcontent {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e6e6e6;
+}
