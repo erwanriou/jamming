@@ -1,8 +1,30 @@
-
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
 
 header {
+  height: 7rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.header {
   display: flex;
-  justify-content: space-around;
-  height: 5rem;
-  border-bottom: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  background-color: #5e5e88;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.title strong {
+  color: lightblue;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
 }

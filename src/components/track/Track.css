@@ -1,0 +1,18 @@
+.track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: lightblue;
+  border-radius: 1rem;
+  width: 30rem;
+}
+
+.Track h2 {
+  font-size: 1rem;
+}
+
+.Track p {
+  font-size: 0.8rem;
+}

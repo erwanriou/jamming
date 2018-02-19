@@ -1,16 +1,18 @@
 import React from 'react';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
     return (
-      <div className="SearchBar">
+      <form onSubmit="" className="SearchBar">
         <input placeholder="Write your songe here"></input>
-        <button type="" name="">Search</button>
-      </div>
+        <button type="submit">Search</button>
+      </form>
     );
   }
 }

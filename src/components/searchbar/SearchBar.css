@@ -1,0 +1,30 @@
+.SearchBar {
+  display: flex;
+}
+
+input, button {
+  padding: 0.7rem;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+input {
+  background-color: white;
+  color: black;
+  border: 1px solid #e6e6e6;
+}
+
+button {
+  background-color: #5e5e88;
+  border: none;
+  color: white;
+}
+
+::placeholder {
+  color: grey;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
