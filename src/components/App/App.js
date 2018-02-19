@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
+
 
 import SearchBar from '../searchbar/SearchBar.js';
 import SearchResult from '../searchresult/SearchResult.js';
@@ -10,12 +13,16 @@ import Track from '../track/Track.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { position: 0 }
+    this.state = {
+      position: 0
+    }
     this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    this.setState({ position: (this.state.position === 1) % 2 })
+    this.setState({
+      position: (this.state.position === 1) % 2
+    })
   }
 
   render() {
