@@ -5,8 +5,14 @@ class Track extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isRemoval: false}
+
   }
 
+  renderAction() {
+    if (this.state.isRemoval === true) {
+      this.setState({ isRemoval: true})
+    }
+  }
 
   render() {
 
@@ -14,9 +20,7 @@ class Track extends React.Component {
     let trackAlbum = "The Temper Trap";
     let trackArtist = "Bootleg";
 
-    renderAction() {
-      if (isRemoval)
-    }
+
 
     return (
       <div className="Track">
