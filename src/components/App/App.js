@@ -13,23 +13,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [
-        {
-          name: 'erwan',
-          artist: 'caca',
-          album: 'boudin'
-        },
-        {
-          name: 'erwan',
-          artist: 'caca',
-          album: 'boudin'
-        },
-        {
-          name: 'erwan',
-          artist: 'caca',
-          album: 'boudin'
-        }
-      ]
+      searchResults: [],
+      playlistName: 'ErwanPlayList',
+      playlistTracks: []
     };
   }
 
@@ -41,7 +27,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResult searchResults={this.state.searchResults}/>
-            <PlayList />
+            <PlayList playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>
