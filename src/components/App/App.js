@@ -17,6 +17,14 @@ class App extends Component {
       playlistName: 'ErwanPlayList',
       playlistTracks: []
     };
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track) {
+    if (!this.state.playlistTracks.find(tracks => tracks.id === track.id)) {
+      this.state.playlistTracks.push(this.track);
+    }
+    this.setState({playlistTracks: playlistTracks});
   }
 
   render() {
