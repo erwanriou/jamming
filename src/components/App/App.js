@@ -55,8 +55,8 @@ class App extends Component {
     const TrackURIs = this.state.playlistTracks.map(track => track.uri)
   }
 
-  search(search) {
-    console.log(search);
+  search(term) {
+    console.log(term);
   }
 
   render() {
