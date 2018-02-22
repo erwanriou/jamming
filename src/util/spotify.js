@@ -1,5 +1,5 @@
 //user variable  and URI (Have to be the domainname where you are hosting your website)- see this documentation - https://developer.spotify.com/web-api/authorization-guide/#implicit_grant_flow - https://beta.developer.spotify.com/dashboard/applications
-const redirectURI = "http://localhost:3000/"
+const redirectURI = "http://jamming-erwanriou.surge.sh/"
 const client_id = "03317009f2e84c71ae43443aa5848b8a";
 
 
@@ -36,9 +36,9 @@ const Spotify = {
   },
   // The second method that is the GET
   async search(term) {
-    if(accessToken === undefined) {
+    if (!accessToken) {
 				this.getAccessToken();
-			}
+		}
     try {
       let response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`,
         {
@@ -62,7 +62,59 @@ const Spotify = {
     } catch(error) {
       console.log(error);
     }
-  }
+  },
+  // The 3rd method that is the POST
+  async savePlaylist(name, TrackURIs) {
+    if (!accessToken) {
+				this.getAccessToken();
+		}
+    if (!name || !TrackURIs) {
+      return;
+    } else {
+      let userId = await this.findUserId();
+			let playlistID;
+			fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+					"Content-Type": 'application/json'
+				},
+				body: JSON.stringify({name: name})
+			}).then(response => {return response.json()}
+			).then(playlist => {
+				playlistID = playlist.id;
+				this.addTracks(playlistID, TrackURIs, userId);
+			});
+    }
+  },
+
+  addTracks(playlistID, trackURIs, userId) {
+		fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistID}/tracks`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${accessToken}`,
+				"Content-Type": 'application/json'
+			},
+			body: JSON.stringify({uris: trackURIs})
+	  });
+	},
+
+	findUserId() {
+		if(!accessToken) {
+			this.getAccessToken();
+		}
+		let userId;
+		return fetch(`https://api.spotify.com/v1/me`, {
+      headers: {
+      		Authorization: `Bearer ${accessToken}`
+      }
+    })
+    .then(response => {return response.json()})
+    .then(jsonResponse => {
+				userId = jsonResponse.id;
+				return userId;
+		});
+	}
 }
 
 export default Spotify
