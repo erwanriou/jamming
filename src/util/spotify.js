@@ -20,8 +20,8 @@ const Spotify = {
 
     // step 80 condition statement on accesoken and expiration
     if (accessTokenMatch && expiresInMatch) {
-      accessToken = accessTokenMatch;
-      const expiresIn = expiresInMatch;
+      accessToken = accessTokenMatch[1];
+      const expiresIn = Number(expiresInMatch[1]);
 
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
@@ -48,15 +48,17 @@ const Spotify = {
           });
         if (response.ok) {
           let jsonResponse = await response.json();
-          return jsonResponse.tracks.map(track => {
-            return {
-              id: track.id,
-              name: track.name,
-              artist: track.artists[0].name,
-              album: track.album.name,
-              uri: track.uri
-            }
-          });
+          if (true) {
+            return jsonResponse.tracks.item.map(track => {
+              return {
+                id: track.id,
+                name: track.name,
+                artist: track.artists[0].name,
+                album: track.album.name,
+                uri: track.uri
+              }
+            });
+          }
         }
         throw new Error('Request failed!');
       } catch(error) {

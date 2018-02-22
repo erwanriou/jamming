@@ -7,17 +7,14 @@ import './App.css';
 import SearchBar from '../searchbar/SearchBar.js';
 import SearchResult from '../searchresult/SearchResult.js';
 import PlayList from '../playlist/PlayList.js';
+import Spotify from '../../util/spotify.js';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [{
-        name: 'erwan',
-        artist: 'is',
-        album: 'testing'
-      }],
+      searchResults: [],
       playlistName: 'New Playlist',
       playlistTracks: []
     };
@@ -56,13 +53,15 @@ class App extends Component {
   }
 
   search(term) {
-    console.log(term);
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults});
+    })
   }
 
   render() {
     return (
       <div>
-        <h1>Ja<span class="highlight">mmm</span>ing</h1>
+        <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <SearchBar onSearch={this.search}/>
           <div className="App-playlist">
