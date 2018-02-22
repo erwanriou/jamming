@@ -37,7 +37,7 @@ const Spotify = {
   // The second method that is the GET
   async search(term) {
     if (!accessToken) {
-				this.getAccessToken();
+			this.getAccessToken();
 		}
     try {
       let response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`,
@@ -66,7 +66,7 @@ const Spotify = {
   // The 3rd method that is the POST
   async savePlaylist(name, TrackURIs) {
     if (!accessToken) {
-				this.getAccessToken();
+			this.getAccessToken();
 		}
     if (!name || !TrackURIs) {
       return;
@@ -90,7 +90,7 @@ const Spotify = {
 
   addTracks(playlistID, trackURIs, userId) {
 		fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistID}/tracks`, {
-			method: 'POST',
+		  method: 'POST',
 			headers: {
 				Authorization: `Bearer ${accessToken}`,
 				"Content-Type": 'application/json'
@@ -106,13 +106,13 @@ const Spotify = {
 		let userId;
 		return fetch(`https://api.spotify.com/v1/me`, {
       headers: {
-      		Authorization: `Bearer ${accessToken}`
+      	Authorization: `Bearer ${accessToken}`
       }
     })
     .then(response => {return response.json()})
     .then(jsonResponse => {
-				userId = jsonResponse.id;
-				return userId;
+			userId = jsonResponse.id;
+			return userId;
 		});
 	}
 }
